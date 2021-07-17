@@ -69,7 +69,7 @@ exports[`<Checkbox /> should render without label by default 1`] = `
   opacity: 1;
 }
 
-<main
+<div
   class="c0"
 >
   <input
@@ -78,5 +78,5 @@ exports[`<Checkbox /> should render without label by default 1`] = `
     type="checkbox"
     value=""
   />
-</main>
+</div>
 `;

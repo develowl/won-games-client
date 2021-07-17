@@ -27,7 +27,7 @@ const wrapperModifiers = {
   `
 }
 
-export const Wrapper = styled.main<WrapperProps>`
+export const Wrapper = styled.section<WrapperProps>`
   ${({ backgroundImage, alignment }) => css`
     position: relative;
     background-image: url(${backgroundImage});

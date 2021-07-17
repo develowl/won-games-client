@@ -3,7 +3,7 @@ import { RadioProps } from '.'
 
 type LabelProps = Pick<RadioProps, 'labelColor'>
 
-export const Wrapper = styled.main`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
 `

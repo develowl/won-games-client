@@ -3,7 +3,7 @@ import { CheckboxProps } from './index'
 
 type LabelProps = Pick<CheckboxProps, 'labelColor'>
 
-export const Wrapper = styled.main`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
 `
