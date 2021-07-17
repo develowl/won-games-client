@@ -1,0 +1,4 @@
+# TESTES
+// 1 - Renderizar o componente `render`
+// 2 - Selecionar o elemento a ser testado `screen` (queries) - getByLabel...
+// 3 - expect - assertion - comparação/análise (ex: espero que renderize a logo na cor branca)
