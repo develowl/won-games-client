@@ -71,4 +71,81 @@ describe('<TextField />', () => {
 
     expect(screen.getByTestId(/icon/i)).toBeInTheDocument()
   })
+
+  it('should render with an icon to the left by default', () => {
+    renderWithTheme(
+      <TextField
+        label={'TextField'}
+        labelFor="TextField"
+        id="TextField"
+        icon={<Email data-testid={'icon'} />}
+      />
+    )
+
+    expect(
+      screen.getByTestId(/icon/i).parentElement?.parentElement
+    ).toHaveStyle({
+      flexDirection: 'row'
+    })
+  })
+
+  it('should render with an icon to the right', () => {
+    renderWithTheme(
+      <TextField
+        label={'TextField'}
+        labelFor="TextField"
+        id="TextField"
+        icon={<Email data-testid={'icon'} />}
+        iconPosition={'right'}
+      />
+    )
+
+    expect(
+      screen.getByTestId(/icon/i).parentElement?.parentElement
+    ).toHaveStyle({
+      flexDirection: 'row-reverse'
+    })
+  })
+
+  it('should not change its value when disabled', async () => {
+    const onInput = jest.fn()
+    renderWithTheme(
+      <TextField
+        label={'TextField'}
+        labelFor="TextField"
+        id="TextField"
+        icon={<Email data-testid={'icon'} />}
+        disabled
+      />
+    )
+
+    const input = screen.getByRole('textbox')
+    expect(input).toBeDisabled()
+
+    const text = 'This is my new text'
+    userEvent.type(input, text)
+
+    await waitFor(() => {
+      expect(input).not.toHaveValue(text)
+    })
+    expect(onInput).not.toHaveBeenCalled()
+  })
+
+  it('should not be accessible by tab when is disabled', () => {
+    renderWithTheme(
+      <TextField
+        label={'TextField'}
+        labelFor="TextField"
+        id="TextField"
+        icon={<Email data-testid={'icon'} />}
+        disabled
+      />
+    )
+
+    const input = screen.getByLabelText('TextField')
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+    expect(input).not.toHaveFocus()
+  })
 })

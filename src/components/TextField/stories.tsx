@@ -10,8 +10,10 @@ export default {
     labelFor: 'Email',
     id: 'Email',
     icon: <Email />,
+    iconPosition: 'left',
     initialValue: '',
-    placeholder: 'john.wick@gmail.com'
+    placeholder: 'john.wick@gmail.com',
+    disabled: false
   },
   argTypes: {
     oninput: {
