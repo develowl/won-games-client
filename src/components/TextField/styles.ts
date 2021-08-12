@@ -39,6 +39,7 @@ export const Wrapper = styled.div<
 export const InputWrapper = styled.div<Pick<TextFieldProps, 'iconPosition'>>`
   ${({ theme, iconPosition }) => css`
     display: flex;
+    height: 4.5rem;
     flex-direction: ${iconPosition === 'left' ? 'row' : 'row-reverse'};
     background: ${theme.colors.lightGray};
     border-radius: 0.2rem;

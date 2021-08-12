@@ -6,6 +6,7 @@ import { Menu2 as MenuIcon } from '@styled-icons/remix-fill'
 import Button from 'components/Button'
 import Logo from 'components/Logo'
 import MediaMatch from 'components/MediaMatch'
+import Link from 'next/link'
 import { useState } from 'react'
 import { Close as CloseIcon } from 'styled-icons/material-outlined'
 import * as S from './styles'
@@ -47,7 +48,9 @@ const Menu = ({ username }: MenuProps) => {
 
         {!username && (
           <MediaMatch greaterThan={'medium'}>
-            <Button>Sign in</Button>
+            <Link href={'/sign-in'} passHref>
+              <Button as={'a'}>Sign in</Button>
+            </Link>
           </MediaMatch>
         )}
       </S.MenuGroup>
@@ -67,13 +70,15 @@ const Menu = ({ username }: MenuProps) => {
 
         {!username && (
           <S.RegisterBox>
-            <Button fullWidth size={'large'}>
-              Log in now
-            </Button>
+            <Link href={'/sign-in'} passHref>
+              <Button as={'a'} fullWidth size={'large'}>
+                Sign in now
+              </Button>
+            </Link>
             <span>or</span>
-            <S.CreateAccount href={'#'} title={'Sign Up'}>
-              Sign up
-            </S.CreateAccount>
+            <Link href={'/sign-up'} passHref>
+              <S.CreateAccount title={'Sign Up'}>Sign up</S.CreateAccount>
+            </Link>
           </S.RegisterBox>
         )}
       </S.MenuFull>

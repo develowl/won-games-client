@@ -35,7 +35,7 @@ describe('<Menu />', () => {
   it('should show register when logged out', () => {
     renderWithTheme(<Menu />)
 
-    expect(screen.getByText(/log in now/i)).toBeInTheDocument()
+    expect(screen.getByText(/sign in now/i)).toBeInTheDocument()
     expect(screen.getByText(/sign up/i)).toBeInTheDocument()
 
     // get opcional (pode ou não ter)
@@ -50,7 +50,7 @@ describe('<Menu />', () => {
     expect(screen.getByText(/wishlist/i)).toBeInTheDocument()
 
     // get opcional (pode ou não ter)
-    expect(screen.queryByText(/log in now/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/sign in now/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/sign up/i)).not.toBeInTheDocument()
   })
 })
