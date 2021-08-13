@@ -5,3 +5,8 @@ import theme from 'styles/theme'
 
 export const renderWithTheme = (children: React.ReactNode): RenderResult =>
   render(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
+
+export function mockComponent(id: string) {
+  // eslint-disable-next-line react/display-name
+  return () => <div data-testid={id}></div>
+}
