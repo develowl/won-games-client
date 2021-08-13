@@ -21,6 +21,7 @@ exports[`<TextField /> should render with an error 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  height: 4.5rem;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
