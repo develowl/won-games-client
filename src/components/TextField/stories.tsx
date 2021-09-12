@@ -16,7 +16,7 @@ export default {
     disabled: false
   },
   argTypes: {
-    oninput: {
+    onInput: {
       action: 'changed'
     },
     icon: {
