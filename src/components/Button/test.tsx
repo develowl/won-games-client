@@ -1,5 +1,5 @@
+import { AddShoppingCart } from '@styled-icons/material-outlined'
 import { screen } from '@testing-library/react'
-import { AddShoppingCart } from 'styled-icons/material-outlined'
 import { renderWithTheme } from 'utils/tests/helpers'
 import Button from '.'
 
@@ -113,7 +113,7 @@ describe('<Button />', () => {
     )
 
     // imprime na tela toda a estrutura do componente
-    // debug(container)
+    debug(container)
 
     expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute(
       'href',

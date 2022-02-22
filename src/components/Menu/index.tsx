@@ -1,4 +1,5 @@
 import {
+  Close as CloseIcon,
   Search as SearchIcon,
   ShoppingCart as ShoppingCartIcon
 } from '@styled-icons/material-outlined'
@@ -8,7 +9,6 @@ import Logo from 'components/Logo'
 import MediaMatch from 'components/MediaMatch'
 import Link from 'next/link'
 import { useState } from 'react'
-import { Close as CloseIcon } from 'styled-icons/material-outlined'
 import * as S from './styles'
 
 export type MenuProps = {

@@ -1,9 +1,10 @@
+/* eslint-disable @next/next/no-document-import-in-page */
 import Document, {
-  Html,
+  DocumentContext,
   Head,
+  Html,
   Main,
-  NextScript,
-  DocumentContext
+  NextScript
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
