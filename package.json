@@ -20,8 +20,8 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "npm run lint:fix",
-      "npm run test "
+      "yarn lint:fix",
+      "yarn test --passWithNoTests"
     ]
   },
   "dependencies": {
@@ -40,7 +40,7 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-typescript": "^7.14.5",
     "@storybook/addon-essentials": "6.3.0",
-    "@storybook/react": "6.3.0",
+    "@storybook/react": "6.4.19",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.0",
