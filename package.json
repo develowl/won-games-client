@@ -20,8 +20,8 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "npm run lint:fix",
-      "npm run test "
+      "yarn lint:fix",
+      "yarn test --passWithNoTests"
     ]
   },
   "dependencies": {
@@ -62,7 +62,7 @@
     "husky": "^6.0.0",
     "jest": "^27.0.5",
     "jest-styled-components": "^7.0.4",
-    "lint-staged": "^11.0.0",
+    "lint-staged": "^12.3.4",
     "plop": "^2.7.4",
     "prettier": "^2.3.1",
     "storybook-addon-next-router": "^2.0.4",
