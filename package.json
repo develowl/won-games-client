@@ -20,8 +20,8 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "npm run lint:fix",
-      "npm run test "
+      "yarn lint:fix",
+      "yarn test --passWithNoTests"
     ]
   },
   "dependencies": {
@@ -33,7 +33,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-slick": "^0.28.1",
-    "styled-components": "5.3.0",
+    "styled-components": "5.3.3",
     "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
