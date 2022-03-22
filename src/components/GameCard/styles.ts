@@ -120,6 +120,7 @@ const priceModifiers = {
 export const Price = styled.div<PriceProps>`
   ${({ theme, isPromotional }) => css`
     display: inline-flex;
+    font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.bold};
     height: 3rem;
     align-items: center;
