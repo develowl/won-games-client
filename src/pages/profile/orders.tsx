@@ -1,12 +1,12 @@
-import CardsList, { CardsListProps } from 'components/CardsList'
-import cardsMock from 'components/PaymentOptions/mock'
+import OrdersList, { OrdersListProps } from 'components/OrdersList'
+import itemsMock from 'components/OrdersList/mock'
 import { GetServerSideProps } from 'next'
 import Profile from 'templates/Profile'
 
-export default function Orders({ cards }: CardsListProps) {
+export default function Orders({ items }: OrdersListProps) {
   return (
     <Profile>
-      <CardsList cards={cards} />
+      <OrdersList items={items} />
     </Profile>
   )
 }
@@ -14,7 +14,7 @@ export default function Orders({ cards }: CardsListProps) {
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
-      cards: cardsMock
+      items: itemsMock
     }
   }
 }
