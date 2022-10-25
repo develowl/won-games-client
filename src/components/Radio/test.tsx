@@ -6,7 +6,7 @@ import Radio from '.'
 describe('<Radio />', () => {
   it('should render with label (white)', () => {
     const { container } = renderWithTheme(
-      <Radio label="Radio" labelFor="check" value="anyValue" />
+      <Radio label={'Radio'} labelFor={'check'} value={'anyValue'} />
     )
 
     const label = screen.getByText('Radio')
@@ -16,7 +16,7 @@ describe('<Radio />', () => {
   })
 
   it('should render with label (black)', () => {
-    renderWithTheme(<Radio label="Radio" labelColor="black" />)
+    renderWithTheme(<Radio label={'Radio'} labelColor={'black'} />)
 
     const label = screen.getByText('Radio')
     expect(label).toBeInTheDocument()
@@ -33,10 +33,10 @@ describe('<Radio />', () => {
     const onCheck = jest.fn()
     renderWithTheme(
       <Radio
-        label="Radio"
-        labelFor="Radio"
+        label={'Radio'}
+        labelFor={'Radio'}
         onCheck={onCheck}
-        value="anyValue"
+        value={'anyValue'}
       />
     )
 
@@ -50,7 +50,7 @@ describe('<Radio />', () => {
   })
 
   it('Should be accessible with tab', () => {
-    renderWithTheme(<Radio label="Radio" labelFor="Radio" />)
+    renderWithTheme(<Radio label={'Radio'} labelFor={'Radio'} />)
 
     const radio = screen.getByLabelText('Radio')
 
