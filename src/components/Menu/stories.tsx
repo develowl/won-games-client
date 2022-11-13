@@ -4,6 +4,11 @@ import Menu, { MenuProps } from '.'
 export default {
   title: 'Menu',
   component: Menu,
+  parameters: {
+    backgrounds: {
+      default: 'won-dark'
+    }
+  },
   argTypes: {
     username: {
       type: 'string'
@@ -14,10 +19,6 @@ export default {
 export const Mobile: Story<MenuProps> = (args) => <Menu {...args} />
 
 Mobile.parameters = {
-  backgrounds: {
-    default: 'won-dark'
-  },
-
   viewport: {
     defaultViewport: 'mobile1'
   },
@@ -27,8 +28,7 @@ Mobile.parameters = {
 
 export const Desktop: Story<MenuProps> = (args) => <Menu {...args} />
 
-Desktop.parameters = {
-  backgrounds: {
-    default: 'won-dark'
-  }
+export const Logged: Story<MenuProps> = (args) => <Menu {...args} />
+Logged.args = {
+  username: 'username'
 }
