@@ -97,7 +97,7 @@ const ExploreSidebar = ({
 
       <S.Footer>
         <Button fullWidth size={'medium'} onClick={handleFilter}>
-          Filtrar
+          Filter
         </Button>
       </S.Footer>
     </S.Wrapper>

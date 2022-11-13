@@ -33,7 +33,7 @@ describe('<ExploreSidebar />', () => {
   it('should render the filter button', () => {
     renderWithTheme(<ExploreSidebar items={items} onFilter={jest.fn} />)
 
-    expect(screen.getByRole('button', { name: /filtrar/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /filter/i })).toBeInTheDocument()
   })
 
   it('should check initial values that are passed', () => {
@@ -60,7 +60,7 @@ describe('<ExploreSidebar />', () => {
         onFilter={onFilter}
       />
     )
-    userEvent.click(screen.getByRole('button', { name: /filtrar/i }))
+    userEvent.click(screen.getByRole('button', { name: /filter/i }))
     expect(onFilter).toHaveBeenCalledWith(initialValues)
   })
 
@@ -71,7 +71,7 @@ describe('<ExploreSidebar />', () => {
 
     userEvent.click(screen.getByLabelText(/windows/i))
     userEvent.click(screen.getByLabelText(/low to high/i))
-    userEvent.click(screen.getByRole('button', { name: /filtrar/i }))
+    userEvent.click(screen.getByRole('button', { name: /filter/i }))
 
     expect(onFilter).toHaveBeenCalledWith({
       windows: true,
@@ -85,12 +85,12 @@ describe('<ExploreSidebar />', () => {
     renderWithTheme(<ExploreSidebar items={items} onFilter={onFilter} />)
 
     userEvent.click(screen.getByLabelText(/low to high/i))
-    userEvent.click(screen.getByRole('button', { name: /filtrar/i }))
+    userEvent.click(screen.getByRole('button', { name: /filter/i }))
 
     expect(onFilter).toHaveBeenCalledWith({ sort_by: 'low-to-high' })
 
     userEvent.click(screen.getByLabelText(/high to low/i))
-    userEvent.click(screen.getByRole('button', { name: /filtrar/i }))
+    userEvent.click(screen.getByRole('button', { name: /filter/i }))
 
     expect(onFilter).toHaveBeenCalledWith({ sort_by: 'high-to-low' })
   })
