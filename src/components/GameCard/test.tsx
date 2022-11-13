@@ -1,27 +1,27 @@
 import { fireEvent, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import GameCard from '.'
-import item from './mock'
+import gameMock from './mock'
 
 describe('<GameCard />', () => {
   it('should render correctly', () => {
-    renderWithTheme(<GameCard {...item} />)
+    renderWithTheme(<GameCard {...gameMock} />)
 
     expect(
-      screen.getByRole('heading', { name: item.title })
+      screen.getByRole('heading', { name: gameMock.title })
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: item.developer })
+      screen.getByRole('heading', { name: gameMock.developer })
     ).toBeInTheDocument()
-    expect(screen.getByRole('img', { name: item.title })).toHaveAttribute(
+    expect(screen.getByRole('img', { name: gameMock.title })).toHaveAttribute(
       'src',
-      item.img
+      gameMock.img
     )
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
   })
 
   it('should render original price', () => {
-    renderWithTheme(<GameCard {...item} />)
+    renderWithTheme(<GameCard {...gameMock} />)
     const price = screen.getByText('R$ 235,00')
 
     expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
@@ -29,7 +29,7 @@ describe('<GameCard />', () => {
   })
 
   it('should render promotional price', () => {
-    renderWithTheme(<GameCard {...item} promotionalPrice={'R$ 190,00'} />)
+    renderWithTheme(<GameCard {...gameMock} promotionalPrice={'R$ 190,00'} />)
     const price = screen.getByText('R$ 235,00')
     const promotionalPrice = screen.getByText('R$ 190,00')
 
@@ -38,14 +38,14 @@ describe('<GameCard />', () => {
   })
 
   it('should render filled favorite icon when favorite is true', () => {
-    renderWithTheme(<GameCard {...item} favorite />)
+    renderWithTheme(<GameCard {...gameMock} favorite />)
 
     expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
   })
 
   it('should call onFav method when favorite is clicked', () => {
     const onFav = jest.fn()
-    renderWithTheme(<GameCard {...item} onFav={onFav} />)
+    renderWithTheme(<GameCard {...gameMock} onFav={onFav} />)
 
     fireEvent.click(screen.getAllByRole('button')[0])
 
@@ -55,7 +55,7 @@ describe('<GameCard />', () => {
   it('should render with a Ribbon', () => {
     renderWithTheme(
       <GameCard
-        {...item}
+        {...gameMock}
         ribbon={'My Ribbon'}
         ribbonSize={'small'}
         ribbonColor={'secondary'}
