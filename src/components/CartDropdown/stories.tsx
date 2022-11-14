@@ -13,7 +13,7 @@ export default {
   },
   args: {
     items: itemsMock,
-    total: 'R$ 330,00'
+    total: '$330.00'
   }
 } as Meta
 

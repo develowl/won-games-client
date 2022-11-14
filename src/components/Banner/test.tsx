@@ -14,8 +14,6 @@ describe('<Banner />', () => {
       screen.getByRole('heading', { name: /Play the new CrashLands season/i })
     ).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /defy death/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render with a Ribbon', () => {

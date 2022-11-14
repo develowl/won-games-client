@@ -9,7 +9,6 @@ describe('<Checkbox />', () => {
 
     // input a partir do papel (role)
     expect(screen.queryByLabelText('Checkbox')).not.toBeInTheDocument()
-    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render with label', () => {

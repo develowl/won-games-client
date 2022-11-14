@@ -59,7 +59,7 @@ WithPromotionalPrice.argTypes = {
 }
 
 WithPromotionalPrice.args = {
-  promotionalPrice: 'R$ 190,00'
+  promotionalPrice: 190.0
 }
 
 export const WithRibbon: Story<GameCardProps> = (args) => (

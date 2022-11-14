@@ -22,16 +22,16 @@ describe('<GameCard />', () => {
 
   it('should render original price', () => {
     renderWithTheme(<GameCard {...gameMock} />)
-    const price = screen.getByText('R$ 235,00')
+    const price = screen.getByText('$235.00')
 
     expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
     expect(price).toHaveStyle({ backgroundColor: '#3CD3C1' })
   })
 
   it('should render promotional price', () => {
-    renderWithTheme(<GameCard {...gameMock} promotionalPrice={'R$ 190,00'} />)
-    const price = screen.getByText('R$ 235,00')
-    const promotionalPrice = screen.getByText('R$ 190,00')
+    renderWithTheme(<GameCard {...gameMock} promotionalPrice={190.0} />)
+    const price = screen.getByText('$235.00')
+    const promotionalPrice = screen.getByText('$190.00')
 
     expect(price).toHaveStyle({ textDecoration: 'line-through' })
     expect(promotionalPrice).not.toHaveStyle({ textDecoration: 'line-through' })

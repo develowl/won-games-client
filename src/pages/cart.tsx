@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       recommendedGames: gamesMock,
       recommendedHighlight: highlightMock,
       items: itemsMock,
-      total: 'R$ 460,00',
+      total: '$460.00',
       cards: cardsMock
     }
   }

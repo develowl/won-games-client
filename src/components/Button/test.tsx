@@ -11,8 +11,6 @@ describe('<Button />', () => {
       padding: '0.8rem 3.2rem',
       fontSize: '1.4rem'
     })
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the small size', () => {
