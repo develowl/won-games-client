@@ -3,30 +3,36 @@ import BannerSlider from 'components/BannerSlider'
 import { Container } from 'components/Container'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
-import Showcase from 'components/ShowCase'
+import Showcase from 'components/Showcase'
 import Base from 'templates/Base'
 import * as S from './styles'
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
+  newGamesTitle: string
   newGames: GameCardProps[]
+  mostPopularGamesTitle: string
   mostPopularHighlight: HighlightProps
   mostPopularGames: GameCardProps[]
+  upcomingGamesTitle: string
   upcomingGames: GameCardProps[]
   upcomingHighlight: HighlightProps
-  upcomingMoreGames: GameCardProps[]
+  freeGamesTitle: string
   freeGames: GameCardProps[]
   freeHighlight: HighlightProps
 }
 
 const Home = ({
   banners,
+  newGamesTitle,
   newGames,
+  mostPopularGamesTitle,
   mostPopularHighlight,
   mostPopularGames,
+  upcomingGamesTitle,
   upcomingGames,
   upcomingHighlight,
-  upcomingMoreGames,
+  freeGamesTitle,
   freeGames,
   freeHighlight
 }: HomeTemplateProps) => (
@@ -38,26 +44,24 @@ const Home = ({
     </Container>
 
     <S.SectionNews>
-      <Showcase title={'News'} games={newGames} />
+      <Showcase title={newGamesTitle} games={newGames} color={'black'} />
     </S.SectionNews>
 
     <Showcase
-      title={'Most Popular'}
-      highlight={{ ...mostPopularHighlight }}
+      title={mostPopularGamesTitle}
+      highlight={mostPopularHighlight}
       games={mostPopularGames}
     />
 
-    <S.SectionUpcoming>
-      <Showcase title={'Upcoming'} games={upcomingGames} />
-      <Showcase
-        highlight={{ ...upcomingHighlight }}
-        games={upcomingMoreGames}
-      />
-    </S.SectionUpcoming>
+    <Showcase
+      title={upcomingGamesTitle}
+      games={upcomingGames}
+      highlight={upcomingHighlight}
+    />
 
     <Showcase
-      title={'Free games'}
-      highlight={{ ...freeHighlight }}
+      title={freeGamesTitle}
+      highlight={freeHighlight}
       games={freeGames}
     />
   </Base>
