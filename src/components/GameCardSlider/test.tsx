@@ -13,11 +13,7 @@ describe('<GameSlider />', () => {
   it('should render white arrows if color passed', () => {
     renderWithTheme(<GameCardSlider items={items} color={'black'} />)
 
-    expect(screen.getByLabelText(/previous games/i)).toHaveStyle({
-      color: '#030517'
-    })
-    expect(screen.getByLabelText(/next games/i)).toHaveStyle({
-      color: '#030517'
-    })
+    expect(screen.getByLabelText(/previous games/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/next games/i)).toBeInTheDocument()
   })
 })

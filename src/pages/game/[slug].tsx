@@ -50,7 +50,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   if (!data.games.length) {
     return {
-      notFound: true
+      props: {
+        notFound: true
+      }
     }
   }
 

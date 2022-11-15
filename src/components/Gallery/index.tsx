@@ -1,9 +1,9 @@
-import {
-  ArrowBackIos as ArrowLeft,
-  ArrowForwardIos as ArrowRight,
-  Close
-} from '@styled-icons/material-outlined'
-import Slider, { SliderSettings } from 'components/Slider'
+import { Close } from '@styled-icons/material-outlined'
+import Slider, {
+  SlickArrowNext,
+  SlickArrowPrev,
+  SliderSettings
+} from 'components/Slider'
 import { useEffect, useRef, useState } from 'react'
 import SlickSlider from 'react-slick'
 import * as S from './styles'
@@ -12,8 +12,8 @@ const commonSettings: SliderSettings = {
   infinite: false,
   lazyLoad: 'ondemand',
   arrows: true,
-  nextArrow: <ArrowRight aria-label={'next image'} />,
-  prevArrow: <ArrowLeft aria-label={'previous image'} />
+  prevArrow: <SlickArrowPrev />,
+  nextArrow: <SlickArrowNext />
 }
 
 const settings: SliderSettings = {
