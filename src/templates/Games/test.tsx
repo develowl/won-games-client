@@ -1,9 +1,12 @@
+import { MockedProvider } from '@apollo/client/testing'
 import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import filterItemsMock from 'components/ExploreSidebar/mock'
-import gamesMock from 'components/GameCardSlider/mock'
+import apolloCache from 'utils/apolloCache'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import Games from '.'
+import { fetchMoreMock, gamesMock } from './mock'
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -19,24 +22,46 @@ jest.mock('components/ExploreSidebar', () => ({
   }
 }))
 
-jest.mock('components/GameCard', () => ({
-  __esModule: true,
-  default: function Mock() {
-    return <div data-testid="Mock GameCard" />
-  }
-}))
-
 describe('<Games />', () => {
-  it('should render sections', () => {
+  it('should render loading when starting the template', () => {
     renderWithTheme(
-      <Games filterItems={filterItemsMock} games={[gamesMock[0]]} />
+      <MockedProvider mocks={[]} addTypename={false}>
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
+    )
+    expect(screen.getByText(/loading.../i)).toBeInTheDocument()
+  })
+
+  it('should render sections', async () => {
+    renderWithTheme(
+      <MockedProvider mocks={gamesMock} addTypename={false}>
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
     )
 
-    expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
-    expect(screen.getByTestId('Mock GameCard')).toBeInTheDocument()
+    expect(screen.getByText(/loading.../i)).toBeInTheDocument()
+    expect(await screen.findByTestId('Mock ExploreSidebar')).toBeInTheDocument()
+    expect(await screen.findByText(/sample game/i)).toBeInTheDocument()
 
     expect(
-      screen.getByRole('button', { name: /show more/i })
+      await screen.findByRole('button', { name: /show more/i })
     ).toBeInTheDocument()
+  })
+
+  it('should render more games when show more is clicked', async () => {
+    renderWithTheme(
+      <MockedProvider
+        mocks={[...gamesMock, ...fetchMoreMock]}
+        cache={apolloCache}
+      >
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
+    )
+
+    expect(await screen.findByText(/sample game/i)).toBeInTheDocument()
+    userEvent.click(await screen.findByRole('button', { name: /show more/i }))
+    expect(await screen.findByText(/fetch more game/i)).toBeInTheDocument()
+
+    // screen.logTestingPlaygroundURL()
   })
 })
