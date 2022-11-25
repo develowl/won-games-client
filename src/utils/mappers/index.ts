@@ -9,11 +9,11 @@ import {
 
 export const bannerMapper = (banners: QueryHome_banners[]) => {
   return banners.map((banner) => ({
-    img: `http://localhost:1337${banner.image?.url}` || null,
+    img: `http://localhost:1337${banner.image?.url}`,
     title: banner.title,
     subtitle: banner.subtitle,
-    buttonLabel: banner.button?.label || null,
-    buttonLink: banner.button?.link || null,
+    buttonLabel: banner.button?.label,
+    buttonLink: banner.button?.link,
     ...(banner.ribbon && {
       ribbon: banner.ribbon.text,
       ribbonColor: banner.ribbon.color,
@@ -23,16 +23,16 @@ export const bannerMapper = (banners: QueryHome_banners[]) => {
 }
 
 export const gamesMapper = (games: QueryGames_games[] | null | undefined) => {
-  return (
-    games &&
-    games.map((game) => ({
-      title: game.name,
-      slug: game.slug,
-      developer: game.developers[0].name,
-      img: `http://localhost:1337${game.cover?.url}`,
-      price: game.price
-    }))
-  )
+  return games
+    ? games.map((game) => ({
+        id: game.id,
+        title: game.name,
+        slug: game.slug,
+        developer: game.developers[0].name,
+        img: `http://localhost:1337${game.cover?.url}`,
+        price: game.price
+      }))
+    : []
 }
 
 export const highlightMapper = (
@@ -44,15 +44,15 @@ export const highlightMapper = (
     | null
     | undefined
 ) => {
-  return (
-    highlight && {
-      title: highlight.title,
-      subtitle: highlight.subtitle,
-      buttonLabel: highlight.buttonLabel,
-      buttonLink: highlight.buttonLink,
-      backgroundImage: `http://localhost:1337${highlight.background?.url}`,
-      floatImage: `http://localhost:1337${highlight.floatImage?.url}`,
-      alignment: highlight.alignment
-    }
-  )
+  return highlight
+    ? {
+        title: highlight.title,
+        subtitle: highlight.subtitle,
+        buttonLabel: highlight.buttonLabel,
+        buttonLink: highlight.buttonLink,
+        backgroundImage: `http://localhost:1337${highlight.background?.url}`,
+        floatImage: `http://localhost:1337${highlight.floatImage?.url}`,
+        alignment: highlight.alignment
+      }
+    : {}
 }
