@@ -18,7 +18,8 @@ export const getStaticProps: GetStaticProps = async () => {
     query: QUERY_HOME,
     variables: {
       today: new Date().toISOString().slice(0, 10)
-    }
+    },
+    fetchPolicy: 'no-cache' // garantir sempre dado novo na geração do estático!
   })
 
   return {
