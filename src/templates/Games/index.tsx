@@ -1,22 +1,41 @@
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined'
+import Empty from 'components/Empty'
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
-import GameCard, { GameCardProps } from 'components/GameCard'
+import GameCard from 'components/GameCard'
 import { Grid } from 'components/Grid'
 import { useQueryGames } from 'graphql/queries/games'
+import { useRouter } from 'next/router'
+import { ParsedUrlQueryInput } from 'querystring'
 import Base from 'templates/Base'
+import { parseQueryStringToFilter, parseQueryStringToWhere } from 'utils/filter'
 import * as S from './styles'
 
 export type GamesTemplateProps = {
-  games?: GameCardProps[]
   filterItems: ItemProps[]
 }
 
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
+  const { push, query } = useRouter()
+
   const { data, loading, fetchMore } = useQueryGames({
-    variables: { limit: 15 }
+    notifyOnNetworkStatusChange: true,
+    variables: {
+      limit: 15,
+      where: parseQueryStringToWhere({ queryString: query, filterItems }),
+      sort: query.sort as string | null
+    }
   })
 
-  const handleFilter = () => {
+  const hasMoreGames =
+    !data || !data.gamesConnection?.values
+      ? 0
+      : data.games.length < data.gamesConnection.values.length
+
+  const handleFilter = (items: ParsedUrlQueryInput) => {
+    push({
+      pathname: '/games',
+      query: items
+    })
     return
   }
 
@@ -32,30 +51,53 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   return (
     <Base>
       <S.Main>
-        <ExploreSidebar items={filterItems} onFilter={handleFilter} />
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <section>
-            <Grid>
-              {data?.games.map((game) => (
-                <GameCard
-                  key={game.slug}
-                  title={game.name}
-                  slug={game.slug}
-                  developer={game.developers[0].name}
-                  img={`http://localhost:1337${game.cover?.url}`}
-                  price={game.price}
-                />
-              ))}
-            </Grid>
+        <ExploreSidebar
+          items={filterItems}
+          onFilter={handleFilter}
+          initialValues={parseQueryStringToFilter({
+            queryString: query,
+            filterItems
+          })}
+        />
+        <section>
+          {data?.games.length ? (
+            <>
+              <Grid>
+                {data?.games.map((game) => (
+                  <GameCard
+                    key={game.slug}
+                    title={game.name}
+                    slug={game.slug}
+                    developer={game.developers[0].name}
+                    img={`http://localhost:1337${game.cover?.url}`}
+                    price={game.price}
+                  />
+                ))}
+              </Grid>
 
-            <S.ShowMore role={'button'} onClick={handleShowMore}>
-              <p>Show More</p>
-              <ArrowDown size={35} />
-            </S.ShowMore>
-          </section>
-        )}
+              {hasMoreGames && (
+                <S.ShowMore>
+                  {!loading ? (
+                    <S.ShowMoreButton role={'button'} onClick={handleShowMore}>
+                      <p>Show More</p>
+                      <ArrowDown size={35} />
+                    </S.ShowMoreButton>
+                  ) : (
+                    <S.ShowMoreLoading
+                      src={'/img/dots.svg'}
+                      alt={'Loading more games...'}
+                    />
+                  )}
+                </S.ShowMore>
+              )}
+            </>
+          ) : (
+            <Empty
+              title={':('}
+              description={`We couldn't find any games with this filter`}
+            />
+          )}
+        </section>
       </S.Main>
     </Base>
   )
