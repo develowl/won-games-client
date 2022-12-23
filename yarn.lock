@@ -1198,12 +1198,12 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.5", "@babel/runtime@^7.12.5", "@babel/runtime@^7.14.8", "@babel/runtime@^7.17.8", "@babel/runtime@^7.18.9", "@babel/runtime@^7.19.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
-  version "7.20.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.20.1.tgz#1148bb33ab252b165a06698fde7576092a78b4a9"
-  integrity sha512-mrzLkl6U9YLF8qpqI7TB82PESyEGjm/0Ly91jG575eVxMMlb8fYfOXFZIJ8XfLrJZQbm7dlKry2bJmXBUEkdFg==
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.5", "@babel/runtime@^7.12.5", "@babel/runtime@^7.14.8", "@babel/runtime@^7.17.8", "@babel/runtime@^7.18.9", "@babel/runtime@^7.19.0", "@babel/runtime@^7.20.7", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+  version "7.20.7"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.20.7.tgz#fcb41a5a70550e04a7b708037c7c32f7f356d8fd"
+  integrity sha512-UF0tvkUtxwAgZ5W/KrkHf0Rn0fdnLDU9ScxBrEVNUprE/MzirjK4MJUX1/BVDv00Sv8cljtukVK1aky++X1SjQ==
   dependencies:
-    regenerator-runtime "^0.13.10"
+    regenerator-runtime "^0.13.11"
 
 "@babel/template@^7.12.7", "@babel/template@^7.18.10", "@babel/template@^7.3.3":
   version "7.18.10"
@@ -3086,13 +3086,13 @@
     "@babel/runtime" "^7.12.5"
     "@styled-icons/styled-icon" "^10.6.0"
 
-"@styled-icons/boxicons-solid@10.18.0":
-  version "10.18.0"
-  resolved "https://registry.yarnpkg.com/@styled-icons/boxicons-solid/-/boxicons-solid-10.18.0.tgz#59486a731df3dd0354411e2b47a0ab6938b7a385"
-  integrity sha512-qQeEJsYse1XW89vd0AuHgDMiYwR81hEeBPbLNJC5rU6B+fBvJ+hFxd8GNxNe71WrLhpw3n4pjMqVmcNaFlAZ6Q==
+"@styled-icons/boxicons-solid@10.47.0":
+  version "10.47.0"
+  resolved "https://registry.yarnpkg.com/@styled-icons/boxicons-solid/-/boxicons-solid-10.47.0.tgz#1b84245f3cbb8837e9ff2a6bd3563276e49d8e21"
+  integrity sha512-M795TXYtSJCpfr+ukHZfH9mA0j5MPlB5vwRCnU3O+dojAYla/zoaSashjhUbmlgzKNwALWNfzOqicSCAzU2fhg==
   dependencies:
-    "@babel/runtime" "^7.10.5"
-    "@styled-icons/styled-icon" "^10.6.0"
+    "@babel/runtime" "^7.20.7"
+    "@styled-icons/styled-icon" "^10.7.0"
 
 "@styled-icons/fa-brands@10.22.0":
   version "10.22.0"
@@ -12961,6 +12961,11 @@ regenerator-runtime@^0.13.10, regenerator-runtime@^0.13.4, regenerator-runtime@^
   version "0.13.10"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.10.tgz#ed07b19616bcbec5da6274ebc75ae95634bfc2ee"
   integrity sha512-KepLsg4dU12hryUO7bp/axHAKvwGOCV0sGloQtpagJ12ai+ojVDqkeGSiRX1zlq+kjIMZ1t7gpze+26QqtdGqw==
+
+regenerator-runtime@^0.13.11:
+  version "0.13.11"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
+  integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
 
 regenerator-transform@^0.15.0:
   version "0.15.0"
