@@ -8,6 +8,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import Games from '.'
 import { fetchMoreMock, gamesMock, noGamesMock } from './mock'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 const push = jest.fn()
 
